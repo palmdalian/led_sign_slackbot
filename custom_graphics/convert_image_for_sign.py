@@ -9,7 +9,9 @@ def conform_colors(img):
 			R = pixel[2]
 			if len(pixel) > 3:
 				A = pixel[3]
-				if (R > 200 and G > 200 and B > 200) or A < 100:
+				if A < 100:
+					[0, 0, 0, 255]
+				elif (R > 200 and G > 200 and B > 200):
 					# Turn white to yellow for now
 					img[line_index][pixel_index] = [0, 255, 255, 255]
 				elif R > 200 and G > 100:
@@ -100,7 +102,9 @@ for line in image:
 			A = pixel[3]
 		else:
 			A = 255
-		if (R > 200 and G > 200 and B > 200) or A < 100:
+		if A < 100:
+			sign_matrix[-1].append("B")
+		if (R > 200 and G > 200 and B > 200):
 			# Turn white to yellow for now
 			sign_matrix[-1].append("Y")
 		elif R > 200 and G > 100:
