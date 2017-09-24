@@ -10,8 +10,8 @@ def conform_colors(img):
 			if len(pixel) > 3:
 				A = pixel[3]
 				if (R > 200 and G > 200 and B > 200) or A < 100:
-					# Turn white to black for now
-					img[line_index][pixel_index] = [0, 0, 0, 255]
+					# Turn white to yellow for now
+					img[line_index][pixel_index] = [0, 255, 255, 255]
 				elif R > 200 and G > 100:
 					img[line_index][pixel_index] = [0, 255, 255, 255]
 				elif G > 200:
@@ -22,8 +22,8 @@ def conform_colors(img):
 					img[line_index][pixel_index] = [0, 0, 0, 255]
 			else:
 				if (R > 200 and G > 200 and B > 200):
-					# Turn white to black for now
-					img[line_index][pixel_index] = [0, 0, 0]
+					# Turn white to yellow for now
+					img[line_index][pixel_index] = [0, 255, 255]
 				elif R > 200 and G > 100:
 					img[line_index][pixel_index] = [0, 255, 255]
 				elif G > 200:
@@ -35,7 +35,6 @@ def conform_colors(img):
 	return img
 
 def pad_matrix(target_width, target_height, sign_matrix, fill_color):
-	final_matrix = []
 	if len(sign_matrix) < target_height:
 		pad = target_height - len(sign_matrix)
 		top_pad = int(pad/2)
@@ -102,19 +101,19 @@ for line in image:
 		else:
 			A = 255
 		if (R > 200 and G > 200 and B > 200) or A < 100:
-			# Turn white to black for now
-			sign_matrix[-1].append("B")
-		if R > 200 and G > 100:
+			# Turn white to yellow for now
 			sign_matrix[-1].append("Y")
-		elif G > 200:
+		elif R > 200 and G > 100:
+			sign_matrix[-1].append("Y")
+		elif G > 150:
 			sign_matrix[-1].append("G")
 			B = 0
-		elif R > 200:
+		elif R > 150:
 			sign_matrix[-1].append("R")
 		else:
 			sign_matrix[-1].append("B")
 
-final_matrix = pad_matrix(target_width, target_height, sign_matrix, "G")
+final_matrix = pad_matrix(target_width, target_height, sign_matrix, "B")
 image_string = ""
 for row in final_matrix:
 	image_string += "".join(row)
