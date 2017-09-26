@@ -126,6 +126,7 @@ def get_image_string(matrix):
 	image_string = ""
 	for row in matrix:
 		image_string += "".join(row)
+	return image_string
 
 if __name__ == '__main__':
 	image, resize_ratio = load_and_resize(sys.argv[1])
