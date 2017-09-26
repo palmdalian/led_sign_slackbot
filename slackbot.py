@@ -20,6 +20,9 @@ ser = serial.Serial(<SERIAL-LOCATION>, 300)
 # ser.write("<ID01><GY>GGGGBRRRRBGGGGGGGGGGGBRBRBRBGGGGGGGGGGGBRRRRRBGGGGGGGGGGGBRRYYRRBBGGGGGGGGGBRRYYRRRRBGGGGGGGGBBRRYRRRRRBGGGGGGGGGBRRRRRRRBGGGG\x0D\x0A")
 # Party Parrot v2
 # ser.write("<ID01><GY>BRRRRBGYYYYYBGGGGBRBRBRBGGYYYBGBGBGBRRRRRBGGGYYBGGGGGBRRYYRRBBGGYBGGRRGGRRYYRRRRBGYBGGRRGGBRRYRRRRRBYYBGGRGGGBRRRRRRRBGYYBGGGG\x0D\x0A")
+# Coffee
+# ser.write("<ID01><GX>BBRYYYYYYYYYYYRBBBBBRRYYYYYYYYYYRRRRBBRRYYYYYYYYYRBBBRBBBRRYYYYYYYYRBBBRBBBRRRYYYYYYRRBBBRBBBBBRRYYYYRRRRRRRBBBBBBRRRRRRBBBBBB\x0D\x0A")
+
 
 slack_client = SlackClient(<API-TOKEN>)
 
@@ -49,9 +52,8 @@ supported_emojis ={
 ":arrow_lower_left:": "<BU>",
 ":arrow_lower_right:": "<BV>",
 ":beer:": "<BW>",
-":coffee:": "<BW>",
-":chair:": "<BX>",
-":robot:": "<BY>", # Original is lame. Let's use it for custom graphics
+":coffee:": "<BX>",
+":party_parrot:": "<BY>", # Original is lame. Let's use it for custom graphics
 ":wine_glass:": "<BZ>",
 ":cocktail:": "<BZ>"
 }
